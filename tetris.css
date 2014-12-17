@@ -1,0 +1,29 @@
+#lineCount {
+    color: black;
+    height: 20px;
+}
+
+#myCanvas {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: 800px;
+    border:1px solid #000000;
+}
+
+html {
+    background-color: black;
+}
+
+body {
+    width: 400px;
+    height: 840px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    height: 20px;
+    color: white;
+    font-size: 14pt;
+}
