@@ -24,37 +24,40 @@ var GameObject = function(id,type) {
   this.state = 0;
 };
 
-var TETRIS = {
-  brushWidth: 40,
-  rowCount: 20,
-  colCount: 10,
-  center: 3,
-  interval: setInterval(function(){
-    if(!TETRIS.gameOver)
-      moveDown();
-  }, 300),
-  myMatrix: Array.matrix(11, 21, 0),
-  gid: 1,
-  lineCount:0,
-  colorMap:["rgb(46,46,46)"],
-  level: 1,
-  ctx: null,
-  gameOver: false,
-  TypeEnum: {
-    BLOCK: "block",
-    STRAIGHT: "straight",
-    SNAKE: "snake",
-    HOOKLEFT: "hookleft",
-    HOOKRIGHT: "hookright",
-    PYRAMID: "pyramid",
-    X: "x",
-    Y: "y"
- }
-};
-
-var go = createObject(TETRIS.gid);
+var TETRIS=null;
+var go = null;
 
 function initTetris(){
+   TETRIS = {
+     brushWidth: 40,
+     rowCount: 20,
+     colCount: 10,
+     center: 3,
+     interval: setInterval(function () {
+       if (!TETRIS.gameOver)
+         moveDown();
+     }, 300),
+     myMatrix: Array.matrix(11, 21, 0),
+     gid: 1,
+     lineCount: 0,
+     colorMap: ["rgb(46,46,46)"],
+     level: 1,
+     ctx: null,
+     gameOver: false,
+     TypeEnum: {
+       BLOCK: "block",
+       STRAIGHT: "straight",
+       SNAKE: "snake",
+       HOOKLEFT: "hookleft",
+       HOOKRIGHT: "hookright",
+       PYRAMID: "pyramid",
+       X: "x",
+       Y: "y"
+     }
+   };
+
+  go = createObject(TETRIS.gid);
+
   TETRIS.ctx=document.getElementById("myCanvas").getContext("2d");
   drawScore();
 }
@@ -249,7 +252,7 @@ window.addEventListener("keypress", function (e) {
     rotate();
   } else if(e.which === 115) {
     moveDown();
-  } else if(e.which === 32) {
+  } else if(e.which === 13) {
     var goId=go.id;
     while(canMoveDown() && goId === go.id) {
      moveDown();
