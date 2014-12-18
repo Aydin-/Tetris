@@ -348,13 +348,15 @@ function moveLeft() {
 }
 
 function clearObject() {
-  TETRIS.ctx.fillStyle = TETRIS.colorMap[0];
-  for (var i = 0; i < go.states[go.state].length; i++) {
-    var x = go.states[go.state][i].x;
-    var y = go.states[go.state][i].y;
-    TETRIS.myMatrix[x][y]=0;
-    TETRIS.ctx.fillRect(x * TETRIS.brushWidth ,y * TETRIS.brushWidth, TETRIS.brushWidth, TETRIS.brushWidth);
-    TETRIS.ctx.stroke();
+  if(TETRIS.ctx !== null) {
+    TETRIS.ctx.fillStyle = TETRIS.colorMap[0];
+    for (var i = 0; i < go.states[go.state].length; i++) {
+      var x = go.states[go.state][i].x;
+      var y = go.states[go.state][i].y;
+      TETRIS.myMatrix[x][y]=0;
+      TETRIS.ctx.fillRect(x * TETRIS.brushWidth ,y * TETRIS.brushWidth, TETRIS.brushWidth, TETRIS.brushWidth);
+      TETRIS.ctx.stroke();
+    }
   }
 }
 
