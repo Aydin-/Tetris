@@ -54,7 +54,7 @@ var TETRIS = {
 
 var go = createObject(TETRIS.gid);
 
-function init(){
+function initTetris(){
   TETRIS.ctx=document.getElementById("myCanvas").getContext("2d");
   drawScore();
 }
